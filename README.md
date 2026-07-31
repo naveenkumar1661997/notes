@@ -4,4 +4,4 @@
 ---
 Structured Query Language
 
-- [SQL] (./sql.md)
+- [SQL](./sql.md)
