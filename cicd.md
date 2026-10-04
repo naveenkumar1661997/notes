@@ -1,5 +1,4 @@
 ---
-layout: default
 title: CI/CD
 ---
 
@@ -126,6 +125,8 @@ flowchart LR
 
 ## GitHub Actions Example {#github-actions}
 
+```liquid
+{% raw %}
 <pre data-lang="yaml"><code># .github/workflows/ci-cd.yml
 name: CI/CD Pipeline
 
@@ -184,14 +185,17 @@ jobs:
   deploy:
     needs: docker
     runs-on: ubuntu-latest
-    environment: production          # requires manual approval in GitHub
+    environment: production
     steps:
       - name: Deploy to ECS
         run: |
           aws ecs update-service \
             --cluster prod-cluster \
             --service myapp \
-            --force-new-deployment</code></pre>
+            --force-new-deployment
+</code></pre>
+{% endraw %}
+```
 
 ---
 
