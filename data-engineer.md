@@ -249,7 +249,7 @@ flowchart TD
 </div>
 </div>
 
-<pre data-lang="sql"><code>-- models/marts/fct_sales.sql
+<pre data-lang="sql"><code>{% raw %}-- models/marts/fct_sales.sql
 
 {{ config(
     materialized='incremental',      -- only process new rows
@@ -276,7 +276,7 @@ SELECT
     o.amount_usd,
     o.amount_usd * {{ var('usd_to_inr', 83.5) }} AS amount_inr
 FROM orders o
-LEFT JOIN customers c ON o.customer_id = c.customer_id</code></pre>
+LEFT JOIN customers c ON o.customer_id = c.customer_id{% endraw %}</code></pre>
 
 ---
 
