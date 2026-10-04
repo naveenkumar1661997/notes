@@ -125,7 +125,6 @@ flowchart LR
 
 ## GitHub Actions Example {#github-actions}
 
-```liquid
 {% raw %}
 <pre data-lang="yaml"><code># .github/workflows/ci-cd.yml
 name: CI/CD Pipeline
@@ -195,7 +194,6 @@ jobs:
             --force-new-deployment
 </code></pre>
 {% endraw %}
-```
 
 ---
 
