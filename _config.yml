@@ -7,6 +7,7 @@ plugins: []
 markdown: kramdown
 kramdown:
   input: GFM
+  hard_wrap: false
   syntax_highlighter: none
 defaults:
   - scope:
