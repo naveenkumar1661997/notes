@@ -1,20 +1,13 @@
-title: Dev Notes
-description: Quick-revision notes for full-stack developers
+title: Naveen Kumar | Tech Notes
+description: Senior Software Engineer — Technical knowledge base covering SQL, Java, AWS, Python, Docker, Data Engineering and more.
 baseurl: "/notes"
 url: "https://naveenkumar1661997.github.io"
-
-# Disable default Jekyll theme — we use our own layout
 theme: null
 plugins: []
-
-# Markdown processing
 markdown: kramdown
 kramdown:
   input: GFM
-  hard_wrap: false
   syntax_highlighter: none
-
-# Collections / Defaults
 defaults:
   - scope:
       path: ""

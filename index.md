@@ -1,148 +1,151 @@
 ---
 layout: default
-title: Home
+title: Naveen Kumar | Tech Knowledge Hub
 ---
 
-<div class="page-hero">
-  <h1>Dev Notes 📚</h1>
-  <p class="subtitle">Quick-revision notes for full-stack development — concise, visual, example-driven.</p>
-  <div class="tag-row">
-    <span class="tag">SQL</span>
-    <span class="tag">JavaScript</span>
-    <span class="tag">React</span>
-    <span class="tag">Node.js</span>
-    <span class="tag">System Design</span>
-    <span class="tag">DSA</span>
-    <span class="tag">Docker</span>
+<div class="ph">
+  <div class="ph-row">
+    <div class="ph-avatar">NK</div>
+    <div>
+      <div class="ph-name">Naveen Kumar</div>
+      <div class="ph-role">Senior Software Engineer – L3 Support</div>
+      <div class="ph-company">📍 SmartStream Technologies · Bengaluru, India</div>
+      <div class="ph-bio">
+        5 years specialising in Java, PostgreSQL, AWS and workflow automation.
+        This is my living technical reference — built for fast revision and shared as a free resource.
+      </div>
+      <div class="ph-stack">
+        <span class="ph-pill">☕ Java</span>
+        <span class="ph-pill">🐘 PostgreSQL</span>
+        <span class="ph-pill">☁️ AWS</span>
+        <span class="ph-pill">🐍 Python</span>
+        <span class="ph-pill">🐳 Docker</span>
+        <span class="ph-pill">🌊 Airflow</span>
+        <span class="ph-pill">📊 Data Engineering</span>
+      </div>
+    </div>
+  </div>
+  <div class="ph-stats">
+    <div><div class="ph-stat-n">5</div><div class="ph-stat-l">Years Exp</div></div>
+    <div><div class="ph-stat-n">10</div><div class="ph-stat-l">Topics</div></div>
+    <div><div class="ph-stat-n">L3</div><div class="ph-stat-l">Support Level</div></div>
+    <div><div class="ph-stat-n">∞</div><div class="ph-stat-l">Always Learning</div></div>
   </div>
 </div>
 
-<div class="toc" style="background:transparent;border:none;padding:0;margin:0 0 1rem;">
-  <p style="color:var(--muted);font-size:0.875rem;">A personal knowledge base built for fast recall — not textbooks. Each page has diagrams, code snippets, tables, and callouts to surface the most important bits quickly.</p>
-</div>
+## 📚 Tech Knowledge Hub
 
-## Topics
+Each topic page contains: **flow diagrams**, key concepts, cheat sheets, and code examples — structured for quick revision.
 
-<div class="topic-grid">
+<div class="tg">
 
-  <a href="./sql.html" class="topic-card">
-    <span class="tc-status s-done">✓ Complete</span>
+  <a href="./sql.html" class="tc">
+    <span class="tc-status s-done">✓ Done</span>
+    <div class="tc-stripe" style="background:linear-gradient(90deg,#3B82F6,#06B6D4)"></div>
     <div class="tc-icon">🗄️</div>
     <div class="tc-title">SQL</div>
-    <div class="tc-desc">Joins, window functions, indexes, transactions, normalization, execution order.</div>
+    <div class="tc-desc">Joins, window functions, indexes, transactions, normalization, query execution order.</div>
     <div class="tc-tags">
-      <span class="tc-tag">DDL/DML</span>
-      <span class="tc-tag">Joins</span>
-      <span class="tc-tag">ACID</span>
-      <span class="tc-tag">Indexes</span>
+      <span class="tc-tag">DDL/DML</span><span class="tc-tag">Joins</span><span class="tc-tag">ACID</span><span class="tc-tag">Indexes</span>
     </div>
   </a>
 
-  <a href="#" class="topic-card">
-    <span class="tc-status s-wip">⏳ In Progress</span>
-    <div class="tc-icon">⚡</div>
-    <div class="tc-title">JavaScript</div>
-    <div class="tc-desc">Event loop, closures, promises, prototypes, ES6+ features, async patterns.</div>
+  <a href="./java.html" class="tc">
+    <span class="tc-status s-done">✓ Done</span>
+    <div class="tc-stripe" style="background:linear-gradient(90deg,#F97316,#F59E0B)"></div>
+    <div class="tc-icon">☕</div>
+    <div class="tc-title">Java</div>
+    <div class="tc-desc">OOP, Collections, JVM internals, multithreading, exception handling, Stream API.</div>
     <div class="tc-tags">
-      <span class="tc-tag">Closures</span>
-      <span class="tc-tag">Async/Await</span>
-      <span class="tc-tag">Prototypes</span>
+      <span class="tc-tag">OOP</span><span class="tc-tag">JVM</span><span class="tc-tag">Collections</span><span class="tc-tag">Threads</span>
     </div>
   </a>
 
-  <a href="#" class="topic-card">
-    <span class="tc-status s-soon">Coming Soon</span>
-    <div class="tc-icon">⚛️</div>
-    <div class="tc-title">React</div>
-    <div class="tc-desc">Hooks, rendering lifecycle, state management, performance patterns, context.</div>
+  <a href="./aws.html" class="tc">
+    <span class="tc-status s-done">✓ Done</span>
+    <div class="tc-stripe" style="background:linear-gradient(90deg,#F59E0B,#EF4444)"></div>
+    <div class="tc-icon">☁️</div>
+    <div class="tc-title">AWS</div>
+    <div class="tc-desc">All core services — Compute, Storage, Database, Networking, Security, Analytics, DevOps.</div>
     <div class="tc-tags">
-      <span class="tc-tag">Hooks</span>
-      <span class="tc-tag">Context</span>
-      <span class="tc-tag">Memo</span>
+      <span class="tc-tag">EC2</span><span class="tc-tag">S3</span><span class="tc-tag">RDS</span><span class="tc-tag">Lambda</span>
     </div>
   </a>
 
-  <a href="#" class="topic-card">
-    <span class="tc-status s-soon">Coming Soon</span>
-    <div class="tc-icon">🟢</div>
-    <div class="tc-title">Node.js</div>
-    <div class="tc-desc">Event-driven architecture, streams, cluster, middleware, Express patterns.</div>
-    <div class="tc-tags">
-      <span class="tc-tag">Streams</span>
-      <span class="tc-tag">Event Loop</span>
-      <span class="tc-tag">Express</span>
-    </div>
-  </a>
-
-  <a href="#" class="topic-card">
-    <span class="tc-status s-soon">Coming Soon</span>
-    <div class="tc-icon">🏗️</div>
-    <div class="tc-title">System Design</div>
-    <div class="tc-desc">Scalability, load balancing, caching, databases, message queues, CAP theorem.</div>
-    <div class="tc-tags">
-      <span class="tc-tag">CAP</span>
-      <span class="tc-tag">Caching</span>
-      <span class="tc-tag">Queues</span>
-    </div>
-  </a>
-
-  <a href="#" class="topic-card">
-    <span class="tc-status s-soon">Coming Soon</span>
-    <div class="tc-icon">🧮</div>
-    <div class="tc-title">DSA</div>
-    <div class="tc-desc">Arrays, trees, graphs, sorting, dynamic programming, time complexity.</div>
-    <div class="tc-tags">
-      <span class="tc-tag">Big-O</span>
-      <span class="tc-tag">Trees</span>
-      <span class="tc-tag">DP</span>
-    </div>
-  </a>
-
-  <a href="#" class="topic-card">
-    <span class="tc-status s-soon">Coming Soon</span>
+  <a href="./docker.html" class="tc">
+    <span class="tc-status s-done">✓ Done</span>
+    <div class="tc-stripe" style="background:linear-gradient(90deg,#06B6D4,#3B82F6)"></div>
     <div class="tc-icon">🐳</div>
-    <div class="tc-title">Docker & K8s</div>
-    <div class="tc-desc">Images, containers, volumes, Dockerfile best practices, pods, deployments.</div>
+    <div class="tc-title">Docker</div>
+    <div class="tc-desc">Images, containers, volumes, networking, Dockerfile best practices, Compose.</div>
     <div class="tc-tags">
-      <span class="tc-tag">Dockerfile</span>
-      <span class="tc-tag">Pods</span>
-      <span class="tc-tag">Helm</span>
+      <span class="tc-tag">Image</span><span class="tc-tag">Container</span><span class="tc-tag">Compose</span>
     </div>
   </a>
 
-  <a href="#" class="topic-card">
-    <span class="tc-status s-soon">Coming Soon</span>
-    <div class="tc-icon">🔗</div>
-    <div class="tc-title">REST & GraphQL</div>
-    <div class="tc-desc">HTTP methods, status codes, REST conventions, GraphQL queries, mutations, resolvers.</div>
+  <a href="./cicd.html" class="tc">
+    <span class="tc-status s-done">✓ Done</span>
+    <div class="tc-stripe" style="background:linear-gradient(90deg,#10B981,#06B6D4)"></div>
+    <div class="tc-icon">🔄</div>
+    <div class="tc-title">CI/CD</div>
+    <div class="tc-desc">Pipeline stages, continuous integration vs deployment, tools comparison, GitHub Actions.</div>
     <div class="tc-tags">
-      <span class="tc-tag">HTTP</span>
-      <span class="tc-tag">REST</span>
-      <span class="tc-tag">GraphQL</span>
+      <span class="tc-tag">Pipeline</span><span class="tc-tag">Build</span><span class="tc-tag">Deploy</span>
     </div>
   </a>
 
-  <a href="#" class="topic-card">
-    <span class="tc-status s-soon">Coming Soon</span>
-    <div class="tc-icon">🌐</div>
-    <div class="tc-title">Networking</div>
-    <div class="tc-desc">TCP/IP, DNS, TLS/SSL, HTTP/2, WebSockets, CDN, CORS.</div>
+  <a href="./jenkins.html" class="tc">
+    <span class="tc-status s-done">✓ Done</span>
+    <div class="tc-stripe" style="background:linear-gradient(90deg,#EF4444,#F97316)"></div>
+    <div class="tc-icon">⚙️</div>
+    <div class="tc-title">Jenkins</div>
+    <div class="tc-desc">Architecture, declarative pipelines, Jenkinsfile, agents, key plugins, shared libraries.</div>
     <div class="tc-tags">
-      <span class="tc-tag">TCP/IP</span>
-      <span class="tc-tag">TLS</span>
-      <span class="tc-tag">DNS</span>
+      <span class="tc-tag">Jenkinsfile</span><span class="tc-tag">Stages</span><span class="tc-tag">Agents</span>
     </div>
   </a>
 
-  <a href="#" class="topic-card">
-    <span class="tc-status s-soon">Coming Soon</span>
+  <a href="./python.html" class="tc">
+    <span class="tc-status s-done">✓ Done</span>
+    <div class="tc-stripe" style="background:linear-gradient(90deg,#3B82F6,#8B5CF6)"></div>
+    <div class="tc-icon">🐍</div>
+    <div class="tc-title">Python</div>
+    <div class="tc-desc">Core types, OOP, decorators, generators, async, pandas, key libraries for data engineering.</div>
+    <div class="tc-tags">
+      <span class="tc-tag">OOP</span><span class="tc-tag">Pandas</span><span class="tc-tag">Async</span>
+    </div>
+  </a>
+
+  <a href="./airflow.html" class="tc">
+    <span class="tc-status s-done">✓ Done</span>
+    <div class="tc-stripe" style="background:linear-gradient(90deg,#8B5CF6,#EC4899)"></div>
+    <div class="tc-icon">🌊</div>
+    <div class="tc-title">Apache Airflow</div>
+    <div class="tc-desc">DAGs, operators, executors, XCom, connections, sensors, hooks, scheduling.</div>
+    <div class="tc-tags">
+      <span class="tc-tag">DAG</span><span class="tc-tag">Operators</span><span class="tc-tag">XCom</span>
+    </div>
+  </a>
+
+  <a href="./data-engineer.html" class="tc">
+    <span class="tc-status s-done">✓ Done</span>
+    <div class="tc-stripe" style="background:linear-gradient(90deg,#EC4899,#F97316)"></div>
+    <div class="tc-icon">📊</div>
+    <div class="tc-title">Data Engineer</div>
+    <div class="tc-desc">ETL vs ELT, data lake vs warehouse, batch vs streaming, Spark, dbt, data formats.</div>
+    <div class="tc-tags">
+      <span class="tc-tag">ETL</span><span class="tc-tag">Spark</span><span class="tc-tag">dbt</span>
+    </div>
+  </a>
+
+  <a href="./git.html" class="tc">
+    <span class="tc-status s-done">✓ Done</span>
+    <div class="tc-stripe" style="background:linear-gradient(90deg,#F59E0B,#10B981)"></div>
     <div class="tc-icon">🔀</div>
     <div class="tc-title">Git</div>
-    <div class="tc-desc">Branching strategies, rebase vs merge, cherry-pick, interactive rebase, hooks.</div>
+    <div class="tc-desc">Branching strategies, rebase vs merge, cherry-pick, stash, hooks, GitHub flow.</div>
     <div class="tc-tags">
-      <span class="tc-tag">Rebase</span>
-      <span class="tc-tag">Branching</span>
-      <span class="tc-tag">Hooks</span>
+      <span class="tc-tag">Branching</span><span class="tc-tag">Rebase</span><span class="tc-tag">Git Flow</span>
     </div>
   </a>
 
