@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% if page.kind == 'home' %}Notes | Naveen Kumar{% else %}{{ page.title }} | Notes{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description | escape }}"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="{{ page.title | escape }}"/>
+  <meta property="og:description" content="{{ page.description | default: site.description | escape }}"/>
+
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('nt-theme'); } catch (e) {}
+      if (!t) t = (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/notes.css"/>
+</head>
+<body class="nt">
+
+<header class="nt-top">
+  <button class="nt-icon-btn nt-menu" id="ntMenu" aria-label="Open article list" aria-controls="ntSide" aria-expanded="false">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <a class="nt-brand" href="{{ site.baseurl }}/"><span class="nt-brand-mark">&gt;_</span> Naveen Kumar</a>
+  <a class="nt-brand-notes" href="{{ site.baseurl }}/notes.html">Notes</a>
+  <div class="nt-search">
+    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <input id="ntSearch" type="search" placeholder="Search articles…  ( / )" autocomplete="off" aria-label="Search articles"/>
+    <div class="nt-search-results" id="ntSearchResults" role="listbox" hidden></div>
+  </div>
+  <button class="nt-icon-btn" id="ntTheme" aria-label="Toggle dark mode">
+    <svg class="nt-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg>
+    <svg class="nt-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z" fill="currentColor"/></svg>
+  </button>
+</header>
+
+<nav class="nt-tabs" id="ntTabs" aria-label="Topics"></nav>
+
+<div class="nt-shell{% if page.kind == 'home' %} nt-shell-home{% endif %}">
+  <aside class="nt-side" id="ntSide" aria-label="Articles in this topic"></aside>
+  <div class="nt-scrim" id="ntScrim" hidden></div>
+
+  <main class="nt-main" id="ntMain">
+    <nav class="nt-crumb" id="ntCrumb" aria-label="Breadcrumb"></nav>
+    <article class="nt-article" id="ntArticle">
+      {% unless page.kind == 'home' %}
+      <h1 class="nt-title">{{ page.title }}</h1>
+      <div class="nt-meta">
+        <span id="ntTopicName"></span>
+        <span class="nt-dot">·</span>
+        <span>{{ content | strip_html | number_of_words | divided_by: 220 | plus: 1 }} min read</span>
+        {% if page.description %}<p class="nt-lede">{{ page.description }}</p>{% endif %}
+      </div>
+      {% endunless %}
+      {{ content }}
+      <div id="ntTopicIndex"></div>
+    </article>
+    <nav class="nt-pager" id="ntPager" aria-label="Previous and next article"></nav>
+    <footer class="nt-foot">
+      Written by <a href="https://www.linkedin.com/in/naveen-kumar-4bb0241bb/" target="_blank" rel="noopener">Naveen Kumar</a> ·
+      <a href="https://github.com/naveenkumar1661997/notes" target="_blank" rel="noopener">Source on GitHub</a>
+    </footer>
+  </main>
+
+  <aside class="nt-toc" id="ntToc" aria-label="On this page"></aside>
+</div>
+
+<button class="nt-top-btn" id="ntToTop" aria-label="Back to top" hidden>↑</button>
+
+<script id="nt-data" type="application/json">{{ site.data.notes | jsonify }}</script>
+<script>
+  window.NT_PAGE = {
+    kind:  "{{ page.kind | default: 'article' }}",
+    topic: "{{ page.topic }}",
+    slug:  "{{ page.name | remove: '.md' | remove: '.html' }}",
+    base:  "{{ site.baseurl }}"
+  };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/dockerfile.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/groovy.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/pgsql.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/notes.js"></script>
+</body>
+</html>

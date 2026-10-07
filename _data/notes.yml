@@ -1,0 +1,23 @@
+- id: sql
+  title: SQL
+  icon: "🗄️"
+  tagline: Query, model and tune relational data with PostgreSQL.
+  sections:
+    - name: Basics
+      articles:
+        - slug: test-article
+          title: SQL JOINs Explained
+          summary: Combine rows from two tables with INNER, LEFT, RIGHT, FULL and CROSS joins.
+        - slug: second
+          title: GROUP BY and HAVING
+          summary: Aggregate rows into groups.
+- id: java
+  title: Java
+  icon: "☕"
+  tagline: Core Java, the JVM and concurrency.
+  sections:
+    - name: Basics
+      articles:
+        - slug: intro
+          title: Introduction to Java
+          summary: What Java is.
