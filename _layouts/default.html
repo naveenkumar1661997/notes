@@ -278,6 +278,7 @@
   <a href="{{ site.baseurl }}/" class="nav-brand"><span class="nb">&gt;_</span> Naveen Kumar</a>
   <span class="nav-sp"></span>
   <a href="{{ site.baseurl }}/" class="nav-link">Home</a>
+  <a href="{{ site.baseurl }}/notes.html" class="nav-link">Notes</a>
   <a href="{{ site.baseurl }}/sql.html" class="nav-link">SQL</a>
   <a href="{{ site.baseurl }}/java.html" class="nav-link">Java</a>
   <a href="{{ site.baseurl }}/aws.html" class="nav-link">AWS</a>
@@ -290,6 +291,13 @@
 
   <!-- SIDEBAR -->
   <aside>
+    <div class="sb-sec">
+      <span class="sb-lbl">Overview</span>
+      <a href="{{ site.baseurl }}/notes.html"
+         class="sb-link{% if page.url contains 'notes' %} active{% endif %}">
+        📒 Notes <span class="sb-dot dot-done"></span>
+      </a>
+    </div>
     <div class="sb-sec">
       <span class="sb-lbl">Databases</span>
       <a href="{{ site.baseurl }}/sql.html"
