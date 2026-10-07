@@ -385,7 +385,30 @@
       }
     };
 
+    // Diagrams are written as ```mermaid fenced blocks: the Jekyll/kramdown build keeps code blocks
+    // verbatim but collapses the newlines inside raw <div class="mermaid"> blocks, which breaks them.
+    // Turn each fenced block (kramdown + rouge, or plain <pre><code>) into a .diagram > .mermaid box.
+    function convertFencedMermaid() {
+      var done = [];
+      var nodes = document.querySelectorAll('div.language-mermaid, pre > code.language-mermaid');
+      Array.prototype.forEach.call(nodes, function (el) {
+        var wrap = el.matches('div.language-mermaid') ? el : (el.closest('div.language-mermaid') || el.parentNode);
+        if (done.indexOf(wrap) >= 0 || !wrap.parentNode) return;
+        done.push(wrap);
+        var box = document.createElement('div');
+        box.className = 'diagram';
+        var label = wrap.previousElementSibling;
+        if (label && label.classList.contains('diagram-label')) box.appendChild(label);
+        var m = document.createElement('div');
+        m.className = 'mermaid';
+        m.textContent = wrap.textContent.replace(/\s+$/, '');
+        box.appendChild(m);
+        wrap.parentNode.replaceChild(box, wrap);
+      });
+    }
+
     function runMermaid() {
+      convertFencedMermaid();
       mermaid.initialize(cfg);
       mermaid.run({ querySelector: '.mermaid' });
     }
