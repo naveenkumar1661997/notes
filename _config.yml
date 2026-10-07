@@ -1,5 +1,5 @@
 title: Naveen Kumar | Tech Notes
-description: Senior Software Engineer — Technical knowledge base covering SQL, Java, AWS, Python, Docker, Data Engineering and more.
+description: Senior Software Engineer — SQL, Java, AWS, Python, Docker, Data Engineering notes.
 baseurl: "/notes"
 url: "https://naveenkumar1661997.github.io"
 theme: null
@@ -8,11 +8,10 @@ markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
+  html_to_native: true
   syntax_highlighter: none
-  parse_block_html: true
 defaults:
   - scope:
       path: ""
-      type: pages
     values:
       layout: default
