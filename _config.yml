@@ -9,4 +9,10 @@ kramdown:
   input: GFM
   hard_wrap: false
   syntax_highlighter: none
-defaults: []
+  parse_block_html: true
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
