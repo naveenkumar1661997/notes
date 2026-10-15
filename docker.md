@@ -30,7 +30,7 @@ title: Docker
 ## Docker Architecture {#arch}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart TD
     CLI["🖥️ Docker CLI\ndocker build / run / push"] --> DAEMON["🔧 Docker Daemon\n(dockerd)\nManages objects"]
 
@@ -48,7 +48,7 @@ flowchart TD
         VOL
         NET
     end
-</div>
+</pre>
 </div>
 
 ---
@@ -56,7 +56,7 @@ flowchart TD
 ## Image & Container Lifecycle {#lifecycle}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart LR
     CODE["📄 Source Code\n+ Dockerfile"] -->|docker build| IMAGE["📦 Docker Image\n(immutable layers)"]
     IMAGE -->|docker push| REG["🗂️ Registry\n(DockerHub/ECR)"]
@@ -66,7 +66,7 @@ flowchart LR
     STOP -->|docker start| CONT
     STOP -->|docker rm| DEL["🗑️ Deleted"]
     CONT -->|docker commit| NEWIMG["📦 New Image"]
-</div>
+</pre>
 </div>
 
 <div class="box info"><b>💡 Image Layers</b>

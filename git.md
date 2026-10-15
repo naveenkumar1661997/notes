@@ -30,7 +30,7 @@ title: Git
 ## Core Concepts {#concepts}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart LR
     WD["📁 Working Directory\n(untracked changes)"]
     WD -->|git add| SA["📋 Staging Area\n(index)"]
@@ -39,7 +39,7 @@ flowchart LR
     RR -->|git pull| WD
     RR -->|git fetch| LR
     LR -->|git checkout| WD
-</div>
+</pre>
 </div>
 
 <div class="tw">
@@ -59,7 +59,7 @@ flowchart LR
 ## Git Flow — Branching Strategy {#git-flow}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 gitGraph
    commit id: "Initial commit"
    branch develop
@@ -95,7 +95,7 @@ gitGraph
    merge hotfix/critical-bug tag: "v1.0.1"
    checkout develop
    merge hotfix/critical-bug id: "Merge hotfix to dev"
-</div>
+</pre>
 </div>
 
 <div class="tw">
@@ -116,7 +116,7 @@ gitGraph
 ## GitHub Flow — Simplified {#github-flow}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart LR
     MAIN["main\n(always deployable)"]
     MAIN -->|branch| FEAT["feature/my-feature"]
@@ -124,7 +124,7 @@ flowchart LR
     FEAT -->|Pull Request| PR["PR Review\n+ CI checks"]
     PR -->|approved & merged| MAIN
     MAIN -->|auto deploy| PROD["🚀 Production"]
-</div>
+</pre>
 </div>
 
 <div class="box info"><b>ℹ️ When to use which?</b>
@@ -137,7 +137,7 @@ flowchart LR
 ## Merge vs Rebase {#merge-vs-rebase}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart TD
     subgraph MERGE["git merge — preserves history"]
         M_MAIN["main: A→B→C"] --> M_MERGE["Merge commit M"]
@@ -150,7 +150,7 @@ flowchart TD
         R_FEAT["feature: A→B→D'→E'"] --> R_FINAL["feature rebased on C: A→B→C→D'→E'"]
         R_MAIN --> R_FINAL
     end
-</div>
+</pre>
 </div>
 
 <div class="tw">

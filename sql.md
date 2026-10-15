@@ -32,7 +32,7 @@ title: SQL
 ## SQL Command Categories {#categories}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart TD
     SQL["🗄️ SQL Commands"]
 
@@ -41,7 +41,7 @@ flowchart TD
     SQL --> DQL["DQL — Data Query Language\nSELECT"]
     SQL --> DCL["DCL — Data Control Language\nGRANT · REVOKE"]
     SQL --> TCL["TCL — Transaction Control Language\nCOMMIT · ROLLBACK · SAVEPOINT"]
-</div>
+</pre>
 </div>
 
 <div class="box info"><b>💡 Key Distinction</b>
@@ -53,7 +53,7 @@ flowchart TD
 ## Query Execution Order {#execution-order}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart LR
     subgraph W["✍️ Written Order"]
         direction TB
@@ -63,7 +63,7 @@ flowchart LR
         direction TB
         e1["1 FROM"] --> e2["2 JOIN"] --> e3["3 WHERE"] --> e4["4 GROUP BY"] --> e5["5 HAVING"] --> e6["6 SELECT"] --> e7["7 ORDER BY"] --> e8["8 LIMIT"]
     end
-</div>
+</pre>
 </div>
 
 <div class="box warn"><b>⚠️ Common Gotchas</b>
@@ -88,7 +88,7 @@ LIMIT    10;</code></pre>
 ## JOIN Types {#joins}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart TD
     JOINS["🔗 SQL JOINs"]
     JOINS --> INNER["INNER JOIN\nOnly matching rows in BOTH tables"]
@@ -98,7 +98,7 @@ flowchart TD
     JOINS --> CROSS["CROSS JOIN\nCartesian product — every A × every B\nm × n rows"]
     JOINS --> SELF["SELF JOIN\nJoin table with itself\n(manager → employee)"]
     JOINS --> EXCL["LEFT EXCLUDING\nRows in A with NO match in B\nWHERE B.id IS NULL"]
-</div>
+</pre>
 </div>
 
 <div class="tw">
@@ -171,13 +171,13 @@ SELECT * FROM org ORDER BY lvl;</code></pre>
 ## Window Functions {#window}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart LR
     WF["Window Functions\nfn() OVER (PARTITION BY ... ORDER BY ...)"]
     WF --> RANK["Ranking\nROW_NUMBER · RANK · DENSE_RANK · NTILE"]
     WF --> OFFSET["Offset\nLAG · LEAD · FIRST_VALUE · LAST_VALUE"]
     WF --> AGG["Running Aggregates\nSUM OVER · AVG OVER · COUNT OVER"]
-</div>
+</pre>
 </div>
 
 <div class="tw">
@@ -216,7 +216,7 @@ FROM sales;</code></pre>
 ## Indexes {#indexes}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart TD
     IDX["🗂️ Index Types"]
     IDX --> BT["B-Tree (default)\n✅ Range, ORDER BY, LIKE 'abc%'"]
@@ -224,7 +224,7 @@ flowchart TD
     IDX --> CI["Composite\nMulti-column — follow left-prefix rule"]
     IDX --> PI["Partial\nWHERE clause — smaller, faster for sparse data"]
     IDX --> UI["Unique Index\nEnforce uniqueness + speed"]
-</div>
+</pre>
 </div>
 
 <div class="box warn"><b>⚠️ Index Pitfalls</b>
@@ -241,14 +241,14 @@ flowchart TD
 ## Transactions & ACID {#acid}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart LR
     ACID["🔐 ACID Properties"]
     ACID --> A["Atomicity\nAll or nothing\nNo partial state"]
     ACID --> C["Consistency\nDB goes valid state → valid state\nAll constraints maintained"]
     ACID --> I["Isolation\nConcurrent transactions\nbehave as if serial"]
     ACID --> D["Durability\nCommitted data persists\neven after crash (WAL)"]
-</div>
+</pre>
 </div>
 
 <div class="tw">
@@ -281,13 +281,13 @@ COMMIT;</code></pre>
 ## Normalization {#normalization}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart LR
     RAW["Unnormalized\n(redundant data)"] -->|"Atomic values\nno repeating groups"| N1["1NF"]
     N1 -->|"No partial\ndependency"| N2["2NF"]
     N2 -->|"No transitive\ndependency"| N3["3NF"]
     N3 -->|"Every determinant\nis a superkey"| BCNF["BCNF"]
-</div>
+</pre>
 </div>
 
 <div class="tw">

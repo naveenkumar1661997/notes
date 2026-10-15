@@ -53,7 +53,7 @@ title: CI/CD
 ## Full CI/CD Pipeline {#pipeline}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart LR
     DEV["👨‍💻 Developer\nCode Commit"] -->|git push| SCM["📦 Source Control\nGitHub / GitLab"]
 
@@ -80,7 +80,7 @@ flowchart LR
 
     PROD --> MON["📊 Monitoring\nCloudWatch / DataDog"]
     MON -->|alert| DEV
-</div>
+</pre>
 </div>
 
 ---
@@ -201,7 +201,7 @@ jobs:
 ## Deployment Strategies {#strategies}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart TD
     STRAT["🚀 Deployment Strategies"]
 
@@ -210,7 +210,7 @@ flowchart TD
     STRAT --> BG["🔵🟢 Blue/Green\nRun v2 alongside v1\nSwitch traffic instantly\n✅ Instant rollback ❌ 2x infra cost"]
     STRAT --> CAN["🐦 Canary\nSend 5% → 20% → 100% traffic\n✅ Gradual risk ❌ Complex monitoring"]
     STRAT --> AB["🅰️🅱️ A/B Testing\nRoute by user segment\nFor feature experiments"]
-</div>
+</pre>
 </div>
 
 ---

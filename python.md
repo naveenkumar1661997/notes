@@ -31,7 +31,7 @@ title: Python
 ## Python Ecosystem {#ecosystem}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart TD
     PY["🐍 Python"]
 
@@ -42,7 +42,7 @@ flowchart TD
     PY --> AUTO["🤖 Automation\nSelenium · Playwright · Requests · BeautifulSoup"]
     PY --> ASYNC["⚡ Async\nasyncio · aiohttp · FastAPI"]
     PY --> DEVOPS["🔧 DevOps/Scripting\nboto3 (AWS) · Fabric · Click"]
-</div>
+</pre>
 </div>
 
 ---
@@ -217,7 +217,7 @@ first_5 = list(islice(big_squares, 5))</code></pre>
 ## Async / Await {#async}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart LR
     EL["⚡ Event Loop"]
     EL --> T1["Task 1\nawait fetch(url1)"]
@@ -227,7 +227,7 @@ flowchart LR
     T2 --> WAIT
     T3 --> WAIT
     WAIT -->|I/O complete| EL
-</div>
+</pre>
 </div>
 
 <pre data-lang="python"><code">import asyncio, aiohttp

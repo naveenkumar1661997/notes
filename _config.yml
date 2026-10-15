@@ -1,5 +1,5 @@
 title: Notes
-description: Technical reference and revision notes covering SQL, Java, AWS, Docker, CI/CD, Jenkins, Python, Airflow, Data Engineering, and Git.
+description: Quick-revision notes covering SQL, Java, AWS, Python, Docker, CI/CD, Jenkins, Airflow, Data Engineering and Git.
 baseurl: "/notes"
 url: "https://naveenkumar1661997.github.io"
 theme: null
@@ -9,9 +9,8 @@ kramdown:
   input: GFM
   hard_wrap: false
   syntax_highlighter: none
-
 defaults:
   - scope:
       path: ""
     values:
-      layout: "default"
+      layout: default

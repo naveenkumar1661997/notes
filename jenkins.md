@@ -29,7 +29,7 @@ title: Jenkins
 ## Jenkins Architecture {#arch}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart TD
     SCM["📦 Git / GitHub\n(Webhook on push)"] -->|trigger| JC["⚙️ Jenkins Controller\n(Master)\nSchedules builds, stores config"]
 
@@ -46,7 +46,7 @@ flowchart TD
     JC --> |store| WS["💾 Workspace\n& Artifacts"]
     JC --> |notify| NOTIF["📧 Notifications\nSlack / Email"]
     JC --> |deploy| DEPLOY["🚀 Target\nEC2 / ECS / K8s"]
-</div>
+</pre>
 </div>
 
 <div class="box info"><b>ℹ️ Controller vs Agent</b>

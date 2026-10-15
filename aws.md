@@ -34,7 +34,7 @@ title: AWS
 
 <div class="diagram">
 <div class="diagram-label">flowchart — all major AWS service categories</div>
-<div class="mermaid">
+<pre class="mermaid">
 flowchart TD
     AWS["☁️ Amazon Web Services"]
 
@@ -48,7 +48,7 @@ flowchart TD
     AWS --> DEVOPS["⚙️ DEVOPS\nCodePipeline · CodeBuild · CodeDeploy\nCloudFormation · CDK · ECR"]
     AWS --> MONITOR["📈 MONITORING\nCloudWatch · X-Ray · CloudTrail\nConfig · Trusted Advisor"]
     AWS --> AI["🤖 AI/ML\nSageMaker · Rekognition\nComprehend · Textract · Bedrock"]
-</div>
+</pre>
 </div>
 
 ---
@@ -158,7 +158,7 @@ flowchart TD
 ## Networking {#networking}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart TD
     Internet["🌍 Internet"] --> IGW["Internet Gateway\n(IGW)"]
     IGW --> VPC
@@ -180,7 +180,7 @@ flowchart TD
 
     CF["CloudFront CDN"] --> ALB
     R53["Route 53\nDNS"] --> CF
-</div>
+</pre>
 </div>
 
 <div class="tw">
@@ -204,7 +204,7 @@ flowchart TD
 ## Security & IAM {#security}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart LR
     IAM["🔐 IAM"] --> USER["Users\n(people)"]
     IAM --> GROUP["Groups\n(collection of users)"]
@@ -218,7 +218,7 @@ flowchart LR
     ROLE --> EC22["EC2 Instance"]
     ROLE --> LAM["Lambda Function"]
     ROLE --> ECS2["ECS Task"]
-</div>
+</pre>
 </div>
 
 <div class="tw">
@@ -263,7 +263,7 @@ Never use root account for daily work · Enable MFA on all accounts · Use Roles
 ## Analytics & Data {#analytics}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart LR
     RAW["📥 Raw Data\nS3 / Streams"] --> GLUE["AWS Glue\nETL + Data Catalog"]
     GLUE --> DL["Data Lake\nS3 + Lake Formation"]
@@ -272,7 +272,7 @@ flowchart LR
     DL --> RS["Redshift\nData Warehouse"]
     RS --> QS["QuickSight\nBI Dashboard"]
     ATH --> QS
-</div>
+</pre>
 </div>
 
 <div class="tw">

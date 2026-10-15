@@ -30,7 +30,7 @@ title: Airflow
 ## Airflow Architecture {#arch}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart TD
     subgraph AIRFLOW["🌊 Apache Airflow"]
         WEB["🖥️ Webserver\nUI — DAG view, logs, runs, connections"]
@@ -46,7 +46,7 @@ flowchart TD
     EXE --> WORKERS["🔧 Workers\n(Celery) or K8s Pods\nActual task execution"]
     WORKERS --> META
     WORKERS --> LOGS["📋 Log Storage\nLocal / S3 / GCS"]
-</div>
+</pre>
 </div>
 
 <div class="tw">
@@ -67,7 +67,7 @@ flowchart TD
 ## DAG Concepts {#dag}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart LR
     subgraph DAG["📋 DAG: etl_pipeline (daily at 06:00)"]
         direction LR
@@ -85,7 +85,7 @@ flowchart LR
         T2 --> L
         L --> N
     end
-</div>
+</pre>
 </div>
 
 <div class="tw">

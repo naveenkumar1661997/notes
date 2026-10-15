@@ -32,7 +32,7 @@ title: Data Engineer
 ## Data Pipeline Architecture {#pipeline}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart LR
     subgraph SOURCES["📥 Data Sources"]
         DB["Transactional DBs\nPostgreSQL / MySQL"]
@@ -69,7 +69,7 @@ flowchart LR
     ORCH --> BRONZE
     ORCH --> SILVER
     ORCH --> GOLD
-</div>
+</pre>
 </div>
 
 ---
@@ -77,7 +77,7 @@ flowchart LR
 ## ETL vs ELT {#etl-vs-elt}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart LR
     subgraph ETL["ETL — Traditional"]
         direction TB
@@ -88,7 +88,7 @@ flowchart LR
         direction TB
         E2["Extract\nFrom source"] --> L2["Load\nRaw to cloud storage"] --> T2["Transform\nInside warehouse (SQL/dbt)"]
     end
-</div>
+</pre>
 </div>
 
 <div class="tw">
@@ -171,7 +171,7 @@ Use <strong>Parquet with Snappy compression</strong> for most data lake workload
 ## Apache Spark — PySpark {#spark}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart LR
     APP["Spark Application\n(Driver)"] --> SC["SparkContext / SparkSession"]
     SC --> CM["Cluster Manager\nYARN / Mesos / K8s / Standalone"]
@@ -181,7 +181,7 @@ flowchart LR
     WN1 --> DATA["Distributed Storage\nHDFS / S3 / GCS"]
     WN2 --> DATA
     WN3 --> DATA
-</div>
+</pre>
 </div>
 
 <pre data-lang="python"><code>from pyspark.sql import SparkSession
@@ -235,7 +235,7 @@ result.write \
 ## dbt — Data Build Tool {#dbt}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart TD
     RAW["📥 Raw Tables\n(loaded by Fivetran/Airbyte/Glue)"]
     RAW --> STG["📋 Staging Models\nstg_orders.sql\nstg_customers.sql\n(clean, rename, cast)"]
@@ -247,7 +247,7 @@ flowchart TD
     TESTS --> INT
     TESTS --> MART
     DOCS["📖 Auto Documentation\ndbt docs generate"] --> MART
-</div>
+</pre>
 </div>
 
 <pre data-lang="sql"><code>{% raw %}-- models/marts/fct_sales.sql

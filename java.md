@@ -31,7 +31,7 @@ title: Java
 
 <div class="diagram">
 <div class="diagram-label">flowchart — JVM internals</div>
-<div class="mermaid">
+<pre class="mermaid">
 flowchart TD
     SRC["📄 Java Source (.java)"]
     SRC -->|javac| BC["📦 Bytecode (.class)"]
@@ -59,7 +59,7 @@ flowchart TD
     end
 
     EE --> OS["🖥️ OS / Native Libraries"]
-</div>
+</pre>
 </div>
 
 <div class="g2">
@@ -82,14 +82,14 @@ flowchart TD
 ## OOP Principles {#oop}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart LR
     OOP["🎯 OOP Pillars"]
     OOP --> ENC["Encapsulation\nBundle data + methods\nHide via private/getters"]
     OOP --> ABS["Abstraction\nHide complexity\nAbstract class / Interface"]
     OOP --> INH["Inheritance\nextends / implements\nCode reuse"]
     OOP --> POL["Polymorphism\nOverloading (compile-time)\nOverriding (runtime)"]
-</div>
+</pre>
 </div>
 
 <div class="tw">
@@ -110,7 +110,7 @@ flowchart LR
 ## Collections Framework {#collections}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart TD
     CI["Iterable"]
     CI --> CO["Collection"]
@@ -133,7 +133,7 @@ flowchart TD
     MAP --> TM["TreeMap\nSorted by key"]
     MAP --> LHM["LinkedHashMap\nInsertion order"]
     MAP --> CHM["ConcurrentHashMap\n✅ Thread-safe"]
-</div>
+</pre>
 </div>
 
 <div class="box info"><b>💡 Choosing the Right Collection</b>
@@ -145,7 +145,7 @@ Frequent random access → <code>ArrayList</code>. Frequent inserts/deletes → 
 ## Exception Handling {#exceptions}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart TD
     TH["Throwable"]
     TH --> EX["Exception\n(checked + unchecked)"]
@@ -156,7 +156,7 @@ flowchart TD
 
     ER --> OOM["OutOfMemoryError"]
     ER --> SOE["StackOverflowError"]
-</div>
+</pre>
 </div>
 
 <pre data-lang="java"><code>try {
@@ -184,14 +184,14 @@ public class PaymentException extends RuntimeException {
 ## Multithreading {#threads}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart LR
     NEW["NEW\nThread created"] -->|start()| RUNNABLE["RUNNABLE\nReady to run"]
     RUNNABLE -->|scheduler picks| RUNNING["RUNNING\nExecuting"]
     RUNNING -->|sleep/wait/IO| BLOCKED["BLOCKED/WAITING"]
     BLOCKED -->|notify/timeout| RUNNABLE
     RUNNING -->|run() ends| TERMINATED["TERMINATED"]
-</div>
+</pre>
 </div>
 
 <div class="tw">
@@ -225,12 +225,12 @@ CompletableFuture.supplyAsync(() -> fetchUser(id))
 ## Stream API {#streams}
 
 <div class="diagram">
-<div class="mermaid">
+<pre class="mermaid">
 flowchart LR
     SRC["📦 Source\nList, Array, Set"] --> INT["Intermediate Ops\nfilter · map · flatMap\nsorted · distinct · limit"]
     INT --> TERM["Terminal Op\ncollect · count · reduce\nforEach · findFirst · anyMatch"]
     TERM --> RES["✅ Result"]
-</div>
+</pre>
 </div>
 
 <pre data-lang="java"><code>List<String> names = employees.stream()

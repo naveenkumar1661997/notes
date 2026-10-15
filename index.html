@@ -1,187 +1,264 @@
 ---
 layout: default
-title: Naveen Kumar | Tech Knowledge Hub
+title: Notes
 ---
 
-<!-- Portfolio Hero -->
+<!-- Hero -->
 <div class="ph">
-  <div class="ph-row">
-    <div class="ph-avatar">NK</div>
-    <div>
-      <div class="ph-name">Naveen Kumar</div>
-      <div class="ph-role">Senior Software Engineer – L3 Support</div>
-      <div class="ph-company">📍 SmartStream Technologies &nbsp;·&nbsp; Bengaluru, India</div>
-      <div class="ph-bio">
-        5 years specialising in Java, PostgreSQL, AWS and workflow automation.
-        This is my living technical reference — built for fast revision and shared as a free resource.
-      </div>
-      <div class="ph-stack">
-        <span class="ph-pill">☕ Java</span>
-        <span class="ph-pill">🐘 PostgreSQL</span>
-        <span class="ph-pill">☁️ AWS</span>
-        <span class="ph-pill">🐍 Python</span>
-        <span class="ph-pill">🐳 Docker</span>
-        <span class="ph-pill">🌊 Airflow</span>
-        <span class="ph-pill">📊 Data Engineering</span>
-      </div>
+  <div class="ph-icon">📚</div>
+  <div class="ph-text">
+    <div class="ph-name">Notes</div>
+    <div class="ph-role">A quick-revision reference for software engineers</div>
+    <div class="ph-bio">
+      Concise, diagram-driven notes covering databases, programming languages, cloud infrastructure,
+      DevOps tooling, and data engineering — built for fast recall during interviews, project work, and daily engineering.
     </div>
-  </div>
-  <div class="ph-stats">
-    <div><div class="ph-stat-n">5</div><div class="ph-stat-l">Years Exp</div></div>
-    <div><div class="ph-stat-n">10</div><div class="ph-stat-l">Topics</div></div>
-    <div><div class="ph-stat-n">L3</div><div class="ph-stat-l">Support Level</div></div>
-    <div><div class="ph-stat-n">∞</div><div class="ph-stat-l">Always Learning</div></div>
+    <div class="ph-stack">
+      <span class="ph-pill">SQL</span>
+      <span class="ph-pill">Java</span>
+      <span class="ph-pill">Python</span>
+      <span class="ph-pill">AWS</span>
+      <span class="ph-pill">Docker</span>
+      <span class="ph-pill">CI/CD</span>
+      <span class="ph-pill">Jenkins</span>
+      <span class="ph-pill">Airflow</span>
+      <span class="ph-pill">Data Engineering</span>
+      <span class="ph-pill">Git</span>
+    </div>
   </div>
 </div>
 
-<!-- Notes call-to-action -->
-<a href="{{ site.baseurl }}/notes.html" class="tc" style="margin-bottom:1.5rem;padding:1.25rem 1.5rem;">
-  <div class="tc-stripe" style="background:linear-gradient(90deg,#10B981,#06B6D4,#3B82F6)"></div>
-  <div class="tc-icon">📒</div>
-  <div class="tc-title">Notes: in-depth tutorials</div>
-  <div class="tc-desc">One concept per article, with plain-English explanations, worked examples with output, and flow diagrams. Covers SQL, Java, Python, AWS, Docker, Git, CI/CD, Jenkins, Airflow and Data Engineering. Start here to learn a topic properly →</div>
-</a>
+<!-- Stats row -->
+<div class="stat-row">
+  <div class="stat-item">
+    <div class="stat-n">10</div>
+    <div class="stat-l">Topics</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-n">34</div>
+    <div class="stat-l">Diagrams</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-n">100+</div>
+    <div class="stat-l">Code Examples</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-n">∞</div>
+    <div class="stat-l">Revisions</div>
+  </div>
+</div>
 
-<!-- Section heading -->
-<h2>📚 Quick Revision Sheets</h2>
+<!-- Topic Grid -->
+<h2>📖 Topics</h2>
 
-<p style="color:var(--muted);font-size:.88rem;margin-bottom:1rem;">
-  One page per topic with <strong>flow diagrams</strong>, key concepts, cheat sheets and code examples, built for fast revision. For full explanations, use the <a href="{{ site.baseurl }}/notes.html" style="color:var(--accent2)">Notes</a> tutorials.
-</p>
-
-<!-- Topic Cards Grid -->
 <div class="tg">
 
+  <!-- SQL -->
   <a href="{{ site.baseurl }}/sql.html" class="tc">
     <span class="tc-status s-done">✓ Done</span>
     <div class="tc-stripe" style="background:linear-gradient(90deg,#3B82F6,#06B6D4)"></div>
     <div class="tc-icon">🗄️</div>
     <div class="tc-title">SQL</div>
-    <div class="tc-desc">Joins, window functions, indexes, transactions, normalization, query execution order.</div>
+    <div class="tc-desc">
+      Structured Query Language fundamentals and advanced features. Covers the five command categories (DDL, DML, DQL, DCL, TCL),
+      query execution order, all JOIN types with visual diagrams, subqueries, CTEs, window functions
+      (ROW_NUMBER, RANK, LAG, LEAD), index types and pitfalls, ACID properties, isolation levels,
+      and normalization from 1NF through BCNF.
+    </div>
     <div class="tc-tags">
       <span class="tc-tag">DDL/DML</span>
       <span class="tc-tag">Joins</span>
+      <span class="tc-tag">Window Functions</span>
       <span class="tc-tag">ACID</span>
       <span class="tc-tag">Indexes</span>
+      <span class="tc-tag">Normalization</span>
     </div>
   </a>
 
+  <!-- Java -->
   <a href="{{ site.baseurl }}/java.html" class="tc">
     <span class="tc-status s-done">✓ Done</span>
     <div class="tc-stripe" style="background:linear-gradient(90deg,#F97316,#F59E0B)"></div>
     <div class="tc-icon">☕</div>
     <div class="tc-title">Java</div>
-    <div class="tc-desc">OOP, Collections, JVM internals, multithreading, exception handling, Stream API.</div>
+    <div class="tc-desc">
+      Core Java from JVM internals to modern APIs. Covers the JVM architecture (class loader, heap areas, GC, JIT),
+      the four OOP pillars with code examples, the full Collections framework hierarchy (List, Set, Map, Queue),
+      exception handling patterns, multithreading (ExecutorService, CompletableFuture, synchronized, volatile),
+      and the Stream API for functional-style data processing.
+    </div>
     <div class="tc-tags">
-      <span class="tc-tag">OOP</span>
       <span class="tc-tag">JVM</span>
+      <span class="tc-tag">OOP</span>
       <span class="tc-tag">Collections</span>
-      <span class="tc-tag">Threads</span>
+      <span class="tc-tag">Multithreading</span>
+      <span class="tc-tag">Stream API</span>
     </div>
   </a>
 
+  <!-- AWS -->
   <a href="{{ site.baseurl }}/aws.html" class="tc">
     <span class="tc-status s-done">✓ Done</span>
     <div class="tc-stripe" style="background:linear-gradient(90deg,#F59E0B,#EF4444)"></div>
     <div class="tc-icon">☁️</div>
     <div class="tc-title">AWS</div>
-    <div class="tc-desc">All core services — Compute, Storage, Database, Networking, Security, Analytics, DevOps.</div>
+    <div class="tc-desc">
+      High-level overview of all major AWS service categories. Covers Compute (EC2, Lambda, ECS, EKS, Fargate),
+      Storage (S3, EBS, EFS, Glacier), Database (RDS, Aurora, DynamoDB, Redshift, ElastiCache),
+      Networking (VPC, Route 53, CloudFront, ALB), Security (IAM, Cognito, KMS, WAF, GuardDuty),
+      Messaging (SQS, SNS, Kinesis, EventBridge), Analytics (Glue, Athena, EMR), and DevOps (CodePipeline, CloudFormation).
+    </div>
     <div class="tc-tags">
-      <span class="tc-tag">EC2</span>
-      <span class="tc-tag">S3</span>
-      <span class="tc-tag">RDS</span>
-      <span class="tc-tag">Lambda</span>
+      <span class="tc-tag">EC2 / Lambda</span>
+      <span class="tc-tag">S3 / RDS</span>
+      <span class="tc-tag">VPC / IAM</span>
+      <span class="tc-tag">Kinesis / Glue</span>
     </div>
   </a>
 
+  <!-- Docker -->
   <a href="{{ site.baseurl }}/docker.html" class="tc">
     <span class="tc-status s-done">✓ Done</span>
     <div class="tc-stripe" style="background:linear-gradient(90deg,#06B6D4,#3B82F6)"></div>
     <div class="tc-icon">🐳</div>
     <div class="tc-title">Docker</div>
-    <div class="tc-desc">Images, containers, volumes, networking, Dockerfile best practices, Compose.</div>
+    <div class="tc-desc">
+      Container fundamentals and production practices. Covers Docker's daemon/client/registry architecture,
+      the full image-and-container lifecycle, containers vs VMs comparison, multi-stage Dockerfile best practices
+      (layer caching, non-root users, HEALTHCHECK), Docker Compose for multi-service local stacks,
+      and the four network drivers (bridge, host, overlay, none).
+    </div>
     <div class="tc-tags">
-      <span class="tc-tag">Image</span>
-      <span class="tc-tag">Container</span>
+      <span class="tc-tag">Images</span>
+      <span class="tc-tag">Containers</span>
+      <span class="tc-tag">Dockerfile</span>
       <span class="tc-tag">Compose</span>
+      <span class="tc-tag">Networking</span>
     </div>
   </a>
 
+  <!-- CI/CD -->
   <a href="{{ site.baseurl }}/cicd.html" class="tc">
     <span class="tc-status s-done">✓ Done</span>
     <div class="tc-stripe" style="background:linear-gradient(90deg,#10B981,#06B6D4)"></div>
     <div class="tc-icon">🔄</div>
     <div class="tc-title">CI/CD</div>
-    <div class="tc-desc">Pipeline stages, continuous integration vs deployment, tools comparison, GitHub Actions.</div>
+    <div class="tc-desc">
+      Continuous Integration and Continuous Delivery/Deployment concepts and tooling. Distinguishes CI from CD from
+      Continuous Deployment, explains DORA metrics, walks through all pipeline stages (source → build → test →
+      security scan → artifact → deploy → monitor), compares tools (Jenkins, GitHub Actions, GitLab CI, AWS CodePipeline,
+      ArgoCD), and explains Recreate, Rolling, Blue/Green, and Canary deployment strategies.
+    </div>
     <div class="tc-tags">
-      <span class="tc-tag">Pipeline</span>
-      <span class="tc-tag">Build</span>
-      <span class="tc-tag">Deploy</span>
+      <span class="tc-tag">Pipeline Stages</span>
+      <span class="tc-tag">GitHub Actions</span>
+      <span class="tc-tag">Blue/Green</span>
+      <span class="tc-tag">Canary</span>
     </div>
   </a>
 
+  <!-- Jenkins -->
   <a href="{{ site.baseurl }}/jenkins.html" class="tc">
     <span class="tc-status s-done">✓ Done</span>
     <div class="tc-stripe" style="background:linear-gradient(90deg,#EF4444,#F97316)"></div>
     <div class="tc-icon">⚙️</div>
     <div class="tc-title">Jenkins</div>
-    <div class="tc-desc">Architecture, declarative pipelines, Jenkinsfile, agents, key plugins, shared libraries.</div>
+    <div class="tc-desc">
+      Jenkins from architecture to production pipelines. Covers Controller/Agent architecture, Declarative vs Scripted
+      pipeline types, a complete real-world Jenkinsfile with parallel stages, Docker/Kubernetes/label agents,
+      essential plugins (Pipeline, Blue Ocean, Credentials Binding, SonarQube Scanner, Kubernetes), and
+      Shared Libraries for reusable pipeline code across microservices.
+    </div>
     <div class="tc-tags">
       <span class="tc-tag">Jenkinsfile</span>
-      <span class="tc-tag">Stages</span>
+      <span class="tc-tag">Declarative</span>
       <span class="tc-tag">Agents</span>
+      <span class="tc-tag">Plugins</span>
+      <span class="tc-tag">Shared Libs</span>
     </div>
   </a>
 
+  <!-- Python -->
   <a href="{{ site.baseurl }}/python.html" class="tc">
     <span class="tc-status s-done">✓ Done</span>
     <div class="tc-stripe" style="background:linear-gradient(90deg,#3B82F6,#8B5CF6)"></div>
     <div class="tc-icon">🐍</div>
     <div class="tc-title">Python</div>
-    <div class="tc-desc">Core types, OOP, decorators, generators, async, pandas, key libraries for data engineering.</div>
+    <div class="tc-desc">
+      Python from core types to data engineering libraries. Covers the Python ecosystem map, all core data types
+      with mutability rules, list/dict/set comprehensions, OOP with dataclasses and ABCs, decorators
+      (@timer, @retry patterns), generators and lazy evaluation, async/await with the event loop, Pandas for
+      data manipulation, and key data engineering libraries (PySpark, SQLAlchemy, boto3, Polars, Pydantic).
+    </div>
     <div class="tc-tags">
       <span class="tc-tag">OOP</span>
-      <span class="tc-tag">Pandas</span>
+      <span class="tc-tag">Decorators</span>
+      <span class="tc-tag">Generators</span>
       <span class="tc-tag">Async</span>
+      <span class="tc-tag">Pandas</span>
     </div>
   </a>
 
+  <!-- Airflow -->
   <a href="{{ site.baseurl }}/airflow.html" class="tc">
     <span class="tc-status s-done">✓ Done</span>
     <div class="tc-stripe" style="background:linear-gradient(90deg,#8B5CF6,#EC4899)"></div>
     <div class="tc-icon">🌊</div>
     <div class="tc-title">Apache Airflow</div>
-    <div class="tc-desc">DAGs, operators, executors, XCom, connections, sensors, hooks, scheduling.</div>
+    <div class="tc-desc">
+      Workflow orchestration for data pipelines. Covers the five Airflow components (Webserver, Scheduler,
+      Executor, Metadata DB, Workers), DAG concepts (DagRun, TaskInstance, logical_date, scheduling),
+      all major operator types (Python, Bash, Postgres, S3, Spark, Sensors), a complete real-world DAG
+      using the TaskFlow API, XCom rules for passing data, five executor types, and DAG design best practices.
+    </div>
     <div class="tc-tags">
-      <span class="tc-tag">DAG</span>
+      <span class="tc-tag">DAGs</span>
       <span class="tc-tag">Operators</span>
+      <span class="tc-tag">TaskFlow</span>
       <span class="tc-tag">XCom</span>
+      <span class="tc-tag">Executors</span>
     </div>
   </a>
 
+  <!-- Data Engineer -->
   <a href="{{ site.baseurl }}/data-engineer.html" class="tc">
     <span class="tc-status s-done">✓ Done</span>
     <div class="tc-stripe" style="background:linear-gradient(90deg,#EC4899,#F97316)"></div>
     <div class="tc-icon">📊</div>
-    <div class="tc-title">Data Engineer</div>
-    <div class="tc-desc">ETL vs ELT, data lake vs warehouse, batch vs streaming, Spark, dbt, data formats.</div>
+    <div class="tc-title">Data Engineering</div>
+    <div class="tc-desc">
+      End-to-end data pipeline architecture and tooling. Covers the full pipeline from sources to serving layer,
+      ETL vs ELT patterns, Data Lake vs Data Warehouse vs Lakehouse (Delta Lake, Iceberg), Batch vs Streaming
+      processing trade-offs, data formats (Parquet, Avro, ORC), Apache Spark/PySpark with the DataFrame API,
+      dbt model layers (staging → intermediate → marts), the Medallion architecture (Bronze/Silver/Gold),
+      and the complete modern data engineering tool ecosystem.
+    </div>
     <div class="tc-tags">
-      <span class="tc-tag">ETL</span>
+      <span class="tc-tag">ETL / ELT</span>
+      <span class="tc-tag">Data Lake</span>
       <span class="tc-tag">Spark</span>
       <span class="tc-tag">dbt</span>
+      <span class="tc-tag">Medallion</span>
     </div>
   </a>
 
+  <!-- Git -->
   <a href="{{ site.baseurl }}/git.html" class="tc">
     <span class="tc-status s-done">✓ Done</span>
     <div class="tc-stripe" style="background:linear-gradient(90deg,#F59E0B,#10B981)"></div>
     <div class="tc-icon">🔀</div>
     <div class="tc-title">Git</div>
-    <div class="tc-desc">Branching strategies, rebase vs merge, cherry-pick, stash, hooks, GitHub flow.</div>
+    <div class="tc-desc">
+      Version control from core concepts to team workflows. Covers the four Git areas (working dir, staging,
+      local repo, remote), Git Flow branching strategy with a full gitGraph diagram (feature, release, hotfix branches),
+      GitHub Flow for continuous deployment, Merge vs Rebase comparison (history, safety, when to use),
+      cherry-pick / stash / reset / revert, essential daily commands, and Git hooks for automating quality gates.
+    </div>
     <div class="tc-tags">
-      <span class="tc-tag">Branching</span>
-      <span class="tc-tag">Rebase</span>
       <span class="tc-tag">Git Flow</span>
+      <span class="tc-tag">Rebase</span>
+      <span class="tc-tag">Cherry-pick</span>
+      <span class="tc-tag">Hooks</span>
     </div>
   </a>
 
