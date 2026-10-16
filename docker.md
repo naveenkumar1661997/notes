@@ -32,16 +32,16 @@ title: Docker
 <div class="diagram">
 <pre class="mermaid">
 flowchart TD
-    CLI["🖥️ Docker CLI\ndocker build / run / push"] --> DAEMON["🔧 Docker Daemon\n(dockerd)\nManages objects"]
+    CLI["🖥️ Docker CLI docker build / run / push"] --> DAEMON["🔧 Docker Daemon (dockerd) Manages objects"]
 
-    DAEMON --> IMAGES["📦 Images\n(read-only layers)"]
-    DAEMON --> CONT["📦 Containers\n(running instances)"]
-    DAEMON --> VOL["💾 Volumes\n(persistent storage)"]
-    DAEMON --> NET["🌐 Networks\n(bridge/host/overlay)"]
+    DAEMON --> IMAGES["📦 Images (read-only layers)"]
+    DAEMON --> CONT["📦 Containers (running instances)"]
+    DAEMON --> VOL["💾 Volumes (persistent storage)"]
+    DAEMON --> NET["🌐 Networks (bridge/host/overlay)"]
 
-    DAEMON <-->|push/pull| REG["🗂️ Registry\nDocker Hub / AWS ECR\nGitHub GHCR"]
+    DAEMON <-->|push/pull| REG["🗂️ Registry Docker Hub / AWS ECR GitHub GHCR"]
 
-    subgraph HOST["🖥️ Host Machine"]
+    subgraph HOST["Host Machine"]
         DAEMON
         IMAGES
         CONT
@@ -58,11 +58,11 @@ flowchart TD
 <div class="diagram">
 <pre class="mermaid">
 flowchart LR
-    CODE["📄 Source Code\n+ Dockerfile"] -->|docker build| IMAGE["📦 Docker Image\n(immutable layers)"]
-    IMAGE -->|docker push| REG["🗂️ Registry\n(DockerHub/ECR)"]
-    REG  -->|docker pull| IMAGE2["📦 Image\n(on host)"]
-    IMAGE2 -->|docker run| CONT["🟢 Container\n(RUNNING)"]
-    CONT -->|docker stop| STOP["🔴 Container\n(STOPPED)"]
+    CODE["📄 Source Code + Dockerfile"] -->|docker build| IMAGE["📦 Docker Image "]
+    IMAGE -->|docker push| REG["🗂️ Registry "]
+    REG  -->|docker pull| IMAGE2["📦 Image "]
+    IMAGE2 -->|docker run| CONT["🟢 Container "]
+    CONT -->|docker stop| STOP["🔴 Container "]
     STOP -->|docker start| CONT
     STOP -->|docker rm| DEL["🗑️ Deleted"]
     CONT -->|docker commit| NEWIMG["📦 New Image"]

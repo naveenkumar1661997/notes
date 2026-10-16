@@ -34,41 +34,24 @@ title: Data Engineer
 <div class="diagram">
 <pre class="mermaid">
 flowchart LR
-    subgraph SOURCES["📥 Data Sources"]
-        DB["Transactional DBs\nPostgreSQL / MySQL"]
-        API["APIs & Webhooks"]
-        STREAM["Event Streams\nKafka / Kinesis"]
-        FILES["Files\nCSV / JSON / XML"]
-    end
+    DB["Transactional DBs"] --> BATCH["Batch Ingest - Glue / Airflow"]
+    API["APIs and Webhooks"] --> BATCH
+    STREAM["Event Streams - Kafka"] --> STREAM_I["Stream Ingest - Kinesis"]
+    FILES["Files - CSV / JSON"] --> BATCH
 
-    subgraph INGEST["📡 Ingestion"]
-        BATCH_I["Batch Ingest\nAWS Glue / Sqoop\nAirflow"]
-        STREAM_I["Stream Ingest\nKafka Connect\nKinesis Firehose"]
-    end
+    BATCH --> BRONZE["Bronze Layer - Raw data"]
+    STREAM_I --> BRONZE
 
-    subgraph LAKE["🏔️ Data Lake (S3 / GCS)"]
-        BRONZE["🟤 Bronze Layer\nRaw data as-is"]
-        SILVER["⚪ Silver Layer\nCleaned & validated"]
-        GOLD["🟡 Gold Layer\nAggregated / business-ready"]
-    end
+    BRONZE -->|Spark / dbt| SILVER["Silver Layer - Cleaned"]
+    SILVER -->|Spark / dbt| GOLD["Gold Layer - Aggregated"]
 
-    subgraph SERVE["📈 Serving Layer"]
-        DW["Data Warehouse\nRedshift / BigQuery / Snowflake"]
-        BI["BI Tools\nTableau / QuickSight / Superset"]
-        ML["ML Features\nSageMaker Feature Store"]
-        API2["Data API\nFastAPI / GraphQL"]
-    end
+    GOLD --> DW["Data Warehouse - Redshift"]
+    GOLD --> BI["BI Tools - Tableau"]
+    GOLD --> ML["ML Features - SageMaker"]
 
-    SOURCES --> INGEST
-    INGEST --> BRONZE
-    BRONZE -->|Spark / dbt| SILVER
-    SILVER -->|Spark / dbt| GOLD
-    GOLD --> SERVE
-
-    ORCH["🎯 Orchestration\nAirflow / Prefect"] --> INGEST
+    ORCH["Airflow / Prefect"] --> BATCH
     ORCH --> BRONZE
     ORCH --> SILVER
-    ORCH --> GOLD
 </pre>
 </div>
 
@@ -79,14 +62,14 @@ flowchart LR
 <div class="diagram">
 <pre class="mermaid">
 flowchart LR
-    subgraph ETL["ETL — Traditional"]
+    subgraph ETL["ETL  Traditional"]
         direction TB
-        E1["Extract\nFrom source"] --> T1["Transform\nIn pipeline / ETL tool"] --> L1["Load\nTo target DB"]
+        E1["Extract From source"] --> T1["Transform In pipeline / ETL tool"] --> L1["Load To target DB"]
     end
 
-    subgraph ELT["ELT — Modern Cloud"]
+    subgraph ELT["ELT  Modern Cloud"]
         direction TB
-        E2["Extract\nFrom source"] --> L2["Load\nRaw to cloud storage"] --> T2["Transform\nInside warehouse (SQL/dbt)"]
+        E2["Extract From source"] --> L2["Load Raw to cloud storage"] --> T2["Transform Inside warehouse (SQL/dbt)"]
     end
 </pre>
 </div>
@@ -173,12 +156,12 @@ Use <strong>Parquet with Snappy compression</strong> for most data lake workload
 <div class="diagram">
 <pre class="mermaid">
 flowchart LR
-    APP["Spark Application\n(Driver)"] --> SC["SparkContext / SparkSession"]
-    SC --> CM["Cluster Manager\nYARN / Mesos / K8s / Standalone"]
-    CM --> WN1["Worker Node 1\nExecutor → Tasks"]
-    CM --> WN2["Worker Node 2\nExecutor → Tasks"]
-    CM --> WN3["Worker Node N\nExecutor → Tasks"]
-    WN1 --> DATA["Distributed Storage\nHDFS / S3 / GCS"]
+    APP["Spark Application (Driver)"] --> SC["SparkContext / SparkSession"]
+    SC --> CM["Cluster Manager YARN / Mesos / K8s / Standalone"]
+    CM --> WN1["Worker Node 1 Executor → Tasks"]
+    CM --> WN2["Worker Node 2 Executor → Tasks"]
+    CM --> WN3["Worker Node N Executor → Tasks"]
+    WN1 --> DATA["Distributed Storage HDFS / S3 / GCS"]
     WN2 --> DATA
     WN3 --> DATA
 </pre>
@@ -237,16 +220,16 @@ result.write \
 <div class="diagram">
 <pre class="mermaid">
 flowchart TD
-    RAW["📥 Raw Tables\n(loaded by Fivetran/Airbyte/Glue)"]
-    RAW --> STG["📋 Staging Models\nstg_orders.sql\nstg_customers.sql\n(clean, rename, cast)"]
-    STG --> INT["🔧 Intermediate Models\nint_order_items.sql\n(business logic)"]
-    INT --> MART["📊 Mart Models\nfct_sales.sql (facts)\ndim_customer.sql (dimensions)"]
-    MART --> BI["📈 BI Tools\nRedash / Tableau / QuickSight"]
+    RAW["📥 Raw Tables (loaded by Fivetran/Airbyte/Glue)"]
+    RAW --> STG["📋 Staging Models stg_orders.sql stg_customers.sql (clean, rename, cast)"]
+    STG --> INT["🔧 Intermediate Models int_order_items.sql (business logic)"]
+    INT --> MART["📊 Mart Models fct_sales.sql (facts) dim_customer.sql (dimensions)"]
+    MART --> BI["📈 BI Tools Redash / Tableau / QuickSight"]
 
-    TESTS["🧪 dbt Tests\nnot_null · unique\naccepted_values · relationships"] --> STG
+    TESTS["🧪 dbt Tests not_null · unique accepted_values · relationships"] --> STG
     TESTS --> INT
     TESTS --> MART
-    DOCS["📖 Auto Documentation\ndbt docs generate"] --> MART
+    DOCS["📖 Auto Documentation dbt docs generate"] --> MART
 </pre>
 </div>
 

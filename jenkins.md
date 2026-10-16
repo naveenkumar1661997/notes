@@ -31,21 +31,17 @@ title: Jenkins
 <div class="diagram">
 <pre class="mermaid">
 flowchart TD
-    SCM["📦 Git / GitHub\n(Webhook on push)"] -->|trigger| JC["⚙️ Jenkins Controller\n(Master)\nSchedules builds, stores config"]
-
-    JC --> Q["📋 Build Queue"]
-    Q --> AGT
-
-    subgraph AGT["Build Agents (Workers)"]
-        A1["Agent 1\nLinux / Docker"]
-        A2["Agent 2\nWindows"]
-        A3["Agent 3\nK8s Pod (ephemeral)"]
-    end
-
-    AGT --> |results| JC
-    JC --> |store| WS["💾 Workspace\n& Artifacts"]
-    JC --> |notify| NOTIF["📧 Notifications\nSlack / Email"]
-    JC --> |deploy| DEPLOY["🚀 Target\nEC2 / ECS / K8s"]
+    SCM["Git - Webhook on push"] -->|trigger| JC["Jenkins Controller - Schedules builds"]
+    JC --> Q["Build Queue"]
+    Q --> A1["Agent 1 - Linux / Docker"]
+    Q --> A2["Agent 2 - Windows"]
+    Q --> A3["Agent 3 - K8s Pod"]
+    A1 --> JC
+    A2 --> JC
+    A3 --> JC
+    JC --> WS["Workspace and Artifacts"]
+    JC --> NOTIF["Notifications - Slack / Email"]
+    JC --> DEPLOY["Target - EC2 / ECS / K8s"]
 </pre>
 </div>
 

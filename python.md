@@ -35,13 +35,13 @@ title: Python
 flowchart TD
     PY["🐍 Python"]
 
-    PY --> WEB["🌐 Web\nFastAPI · Flask · Django"]
-    PY --> DATA["📊 Data Science\nPandas · NumPy · Matplotlib · Seaborn"]
-    PY --> ML["🤖 ML / AI\nScikit-learn · TensorFlow · PyTorch"]
-    PY --> DE["⚙️ Data Engineering\nApache Spark (PySpark)\nAirflow · dbt · SQLAlchemy"]
-    PY --> AUTO["🤖 Automation\nSelenium · Playwright · Requests · BeautifulSoup"]
-    PY --> ASYNC["⚡ Async\nasyncio · aiohttp · FastAPI"]
-    PY --> DEVOPS["🔧 DevOps/Scripting\nboto3 (AWS) · Fabric · Click"]
+    PY --> WEB["🌐 Web FastAPI · Flask · Django"]
+    PY --> DATA["📊 Data Science Pandas · NumPy · Matplotlib · Seaborn"]
+    PY --> ML["🤖 ML / AI Scikit-learn · TensorFlow · PyTorch"]
+    PY --> DE["⚙️ Data Engineering Apache Spark (PySpark) Airflow · dbt · SQLAlchemy"]
+    PY --> AUTO["🤖 Automation Selenium · Playwright · Requests · BeautifulSoup"]
+    PY --> ASYNC["⚡ Async asyncio · aiohttp · FastAPI"]
+    PY --> DEVOPS["🔧 DevOps/Scripting boto3 (AWS) · Fabric · Click"]
 </pre>
 </div>
 
@@ -220,10 +220,10 @@ first_5 = list(islice(big_squares, 5))</code></pre>
 <pre class="mermaid">
 flowchart LR
     EL["⚡ Event Loop"]
-    EL --> T1["Task 1\nawait fetch(url1)"]
-    EL --> T2["Task 2\nawait fetch(url2)"]
-    EL --> T3["Task 3\nawait fetch(url3)"]
-    T1 --> WAIT["⏳ I/O Wait\n(yields control)"]
+    EL --> T1["Task 1 await fetch(url1)"]
+    EL --> T2["Task 2 await fetch(url2)"]
+    EL --> T3["Task 3 await fetch(url3)"]
+    T1 --> WAIT["⏳ I/O Wait (yields control)"]
     T2 --> WAIT
     T3 --> WAIT
     WAIT -->|I/O complete| EL

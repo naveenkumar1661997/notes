@@ -32,20 +32,20 @@ title: Airflow
 <div class="diagram">
 <pre class="mermaid">
 flowchart TD
-    subgraph AIRFLOW["🌊 Apache Airflow"]
-        WEB["🖥️ Webserver\nUI — DAG view, logs, runs, connections"]
-        SCH["⏰ Scheduler\nParses DAGs, creates DagRuns, queues tasks"]
-        EXE["⚙️ Executor\nLocalExecutor / CeleryExecutor / KubernetesExecutor"]
-        META["🗄️ Metadata DB\nPostgreSQL / MySQL\nStores DAGs, runs, task states, XCom"]
+    subgraph AIRFLOW["Apache Airflow"]
+        WEB["🖥️ Webserver UI — DAG view, logs, runs, connections"]
+        SCH["⏰ Scheduler Parses DAGs, creates DagRuns, queues tasks"]
+        EXE["⚙️ Executor LocalExecutor / CeleryExecutor / KubernetesExecutor"]
+        META["🗄️ Metadata DB PostgreSQL / MySQL Stores DAGs, runs, task states, XCom"]
     end
 
-    DAGFOLDER["📁 DAGs Folder\nPython files"] --> SCH
+    DAGFOLDER["📁 DAGs Folder Python files"] --> SCH
     SCH --> META
     SCH --> EXE
     WEB --> META
-    EXE --> WORKERS["🔧 Workers\n(Celery) or K8s Pods\nActual task execution"]
+    EXE --> WORKERS["🔧 Workers (Celery) or K8s Pods Actual task execution"]
     WORKERS --> META
-    WORKERS --> LOGS["📋 Log Storage\nLocal / S3 / GCS"]
+    WORKERS --> LOGS["📋 Log Storage Local / S3 / GCS"]
 </pre>
 </div>
 
@@ -69,14 +69,14 @@ flowchart TD
 <div class="diagram">
 <pre class="mermaid">
 flowchart LR
-    subgraph DAG["📋 DAG: etl_pipeline (daily at 06:00)"]
+    subgraph DAG["DAG: etl_pipeline (daily at 06:00)"]
         direction LR
-        E["extract_data\nPythonOperator"]
-        V["validate_data\nPythonOperator"]
-        T1["transform_sales\nSparkSubmitOperator"]
-        T2["transform_users\nSparkSubmitOperator"]
-        L["load_to_warehouse\nPostgresOperator"]
-        N["notify_team\nSlackOperator"]
+        E["extract_data PythonOperator"]
+        V["validate_data PythonOperator"]
+        T1["transform_sales SparkSubmitOperator"]
+        T2["transform_users SparkSubmitOperator"]
+        L["load_to_warehouse PostgresOperator"]
+        N["notify_team SlackOperator"]
 
         E --> V
         V --> T1

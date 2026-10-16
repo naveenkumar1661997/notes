@@ -55,30 +55,30 @@ title: CI/CD
 <div class="diagram">
 <pre class="mermaid">
 flowchart LR
-    DEV["👨‍💻 Developer\nCode Commit"] -->|git push| SCM["📦 Source Control\nGitHub / GitLab"]
+    DEV["👨‍💻 Developer Code Commit"] -->|git push| SCM["📦 Source Control GitHub / GitLab"]
 
     SCM --> CI
 
-    subgraph CI["⚙️ Continuous Integration"]
+    subgraph CI["Continuous Integration"]
         direction TB
-        B["🔨 Build\nCompile / Lint"]
-        B --> UT["🧪 Unit Tests\nJUnit / PyTest"]
-        UT --> SA["🔍 Static Analysis\nSonarQube / Checkstyle"]
-        SA --> SEC["🔒 Security Scan\nSNYK / OWASP"]
-        SEC --> ART["📦 Artifact\nJAR / Docker Image"]
+        B["🔨 Build Compile / Lint"]
+        B --> UT["🧪 Unit Tests JUnit / PyTest"]
+        UT --> SA["🔍 Static Analysis SonarQube / Checkstyle"]
+        SA --> SEC["🔒 Security Scan SNYK / OWASP"]
+        SEC --> ART["📦 Artifact JAR / Docker Image"]
     end
 
     ART --> CD
 
-    subgraph CD["🚀 Continuous Delivery/Deployment"]
+    subgraph CD["Continuous Delivery/Deployment"]
         direction TB
-        DEV2["🔧 Dev\nAuto deploy"]
-        DEV2 -->|smoke test| STG["🎭 Staging\nAuto deploy"]
-        STG -->|integration test| UAT["✅ UAT / Pre-Prod\nManual approval"]
-        UAT -->|approved| PROD["🏁 Production\nBlue/Green or Rolling"]
+        DEV2["🔧 Dev Auto deploy"]
+        DEV2 -->|smoke test| STG["🎭 Staging Auto deploy"]
+        STG -->|integration test| UAT["✅ UAT / Pre-Prod Manual approval"]
+        UAT -->|approved| PROD["🏁 Production Blue/Green or Rolling"]
     end
 
-    PROD --> MON["📊 Monitoring\nCloudWatch / DataDog"]
+    PROD --> MON["📊 Monitoring CloudWatch / DataDog"]
     MON -->|alert| DEV
 </pre>
 </div>
@@ -205,11 +205,11 @@ jobs:
 flowchart TD
     STRAT["🚀 Deployment Strategies"]
 
-    STRAT --> REC["♻️ Recreate\nStop all v1 → Start all v2\n✅ Simple ❌ Downtime"]
-    STRAT --> ROLL["🔄 Rolling Update\nReplace instances one by one\n✅ No downtime ❌ Mixed versions briefly"]
-    STRAT --> BG["🔵🟢 Blue/Green\nRun v2 alongside v1\nSwitch traffic instantly\n✅ Instant rollback ❌ 2x infra cost"]
-    STRAT --> CAN["🐦 Canary\nSend 5% → 20% → 100% traffic\n✅ Gradual risk ❌ Complex monitoring"]
-    STRAT --> AB["🅰️🅱️ A/B Testing\nRoute by user segment\nFor feature experiments"]
+    STRAT --> REC["♻️ Recreate Stop all v1 → Start all v2 ✅ Simple ❌ Downtime"]
+    STRAT --> ROLL["🔄 Rolling Update Replace instances one by one ✅ No downtime ❌ Mixed versions briefly"]
+    STRAT --> BG["🔵🟢 Blue/Green Run v2 alongside v1 Switch traffic instantly ✅ Instant rollback ❌ 2x infra cost"]
+    STRAT --> CAN["🐦 Canary Send 5% → 20% → 100% traffic ✅ Gradual risk ❌ Complex monitoring"]
+    STRAT --> AB["🅰️🅱️ A/B Testing Route by user segment For feature experiments"]
 </pre>
 </div>
 

@@ -32,10 +32,10 @@ title: Git
 <div class="diagram">
 <pre class="mermaid">
 flowchart LR
-    WD["📁 Working Directory\n(untracked changes)"]
-    WD -->|git add| SA["📋 Staging Area\n(index)"]
-    SA -->|git commit| LR["🗂️ Local Repo\n(.git folder)"]
-    LR -->|git push| RR["☁️ Remote Repo\n(GitHub/GitLab)"]
+    WD["📁 Working Directory (untracked changes)"]
+    WD -->|git add| SA["📋 Staging Area "]
+    SA -->|git commit| LR["🗂️ Local Repo "]
+    LR -->|git push| RR["☁️ Remote Repo "]
     RR -->|git pull| WD
     RR -->|git fetch| LR
     LR -->|git checkout| WD
@@ -118,10 +118,10 @@ gitGraph
 <div class="diagram">
 <pre class="mermaid">
 flowchart LR
-    MAIN["main\n(always deployable)"]
+    MAIN["main (always deployable)"]
     MAIN -->|branch| FEAT["feature/my-feature"]
     FEAT -->|commits| FEAT
-    FEAT -->|Pull Request| PR["PR Review\n+ CI checks"]
+    FEAT -->|Pull Request| PR["PR Review + CI checks"]
     PR -->|approved & merged| MAIN
     MAIN -->|auto deploy| PROD["🚀 Production"]
 </pre>
@@ -139,13 +139,13 @@ flowchart LR
 <div class="diagram">
 <pre class="mermaid">
 flowchart TD
-    subgraph MERGE["git merge — preserves history"]
+    subgraph MERGE["git merge  preserves history"]
         M_MAIN["main: A→B→C"] --> M_MERGE["Merge commit M"]
         M_FEAT["feature: A→B→D→E"] --> M_MERGE
         M_MERGE --> M_FINAL["main: A→B→C→M (D+E inside)"]
     end
 
-    subgraph REBASE["git rebase — linear history"]
+    subgraph REBASE["git rebase  linear history"]
         R_MAIN["main: A→B→C"]
         R_FEAT["feature: A→B→D'→E'"] --> R_FINAL["feature rebased on C: A→B→C→D'→E'"]
         R_MAIN --> R_FINAL

@@ -33,32 +33,16 @@ title: Java
 <div class="diagram-label">flowchart — JVM internals</div>
 <pre class="mermaid">
 flowchart TD
-    SRC["📄 Java Source (.java)"]
-    SRC -->|javac| BC["📦 Bytecode (.class)"]
-    BC --> CL
-
-    subgraph JVM["☕ JVM"]
-        CL["🔁 Class Loader\nLoad → Link → Initialize"]
-        CL --> MEM
-
-        subgraph MEM["💾 Runtime Data Areas"]
-            HEAP["Heap\n(Objects & Arrays)"]
-            STACK["JVM Stack\n(Method frames, local vars)"]
-            MTH["Method Area\n(Class meta, static vars)"]
-            PC["PC Register\n(Current instruction)"]
-            NM["Native Method Stack"]
-        end
-
-        MEM --> EE
-
-        subgraph EE["⚙️ Execution Engine"]
-            INT["Interpreter\n(line-by-line)"]
-            JIT["JIT Compiler\n(hot-path optimisation)"]
-            GC["Garbage Collector"]
-        end
-    end
-
-    EE --> OS["🖥️ OS / Native Libraries"]
+    SRC["Java Source .java"] -->|javac| BC["Bytecode .class"]
+    BC --> CL["Class Loader - Load, Link, Initialize"]
+    CL --> HEAP["Heap - Objects and Arrays"]
+    CL --> STACK["JVM Stack - Method frames"]
+    CL --> MTH["Method Area - Class metadata"]
+    HEAP --> INT_["Interpreter - line by line"]
+    HEAP --> JIT["JIT Compiler - hot path"]
+    HEAP --> GC["Garbage Collector"]
+    INT_ --> OS["OS - Native Libraries"]
+    JIT --> OS
 </pre>
 </div>
 
@@ -85,10 +69,10 @@ flowchart TD
 <pre class="mermaid">
 flowchart LR
     OOP["🎯 OOP Pillars"]
-    OOP --> ENC["Encapsulation\nBundle data + methods\nHide via private/getters"]
-    OOP --> ABS["Abstraction\nHide complexity\nAbstract class / Interface"]
-    OOP --> INH["Inheritance\nextends / implements\nCode reuse"]
-    OOP --> POL["Polymorphism\nOverloading (compile-time)\nOverriding (runtime)"]
+    OOP --> ENC["Encapsulation Bundle data + methods Hide via private/getters"]
+    OOP --> ABS["Abstraction Hide complexity Abstract class / Interface"]
+    OOP --> INH["Inheritance extends / implements Code reuse"]
+    OOP --> POL["Polymorphism Overloading (compile-time) Overriding (runtime)"]
 </pre>
 </div>
 
@@ -118,21 +102,21 @@ flowchart TD
     CO --> SET["Set"]
     CO --> QUEUE["Queue"]
 
-    LIST --> AL["ArrayList\n✅ Fast get O(1)\n❌ Slow insert O(n)"]
-    LIST --> LL["LinkedList\n✅ Fast insert O(1)\n❌ Slow get O(n)"]
+    LIST --> AL["ArrayList ✅ Fast get O(1) ❌ Slow insert O(n)"]
+    LIST --> LL["LinkedList ✅ Fast insert O(1) ❌ Slow get O(n)"]
 
-    SET --> HS["HashSet\n✅ O(1) ops\n❌ No order"]
-    SET --> TS["TreeSet\n✅ Sorted\nO(log n)"]
-    SET --> LHS["LinkedHashSet\n✅ Insertion order"]
+    SET --> HS["HashSet ✅ O(1) ops ❌ No order"]
+    SET --> TS["TreeSet ✅ Sorted O(log n)"]
+    SET --> LHS["LinkedHashSet ✅ Insertion order"]
 
-    QUEUE --> PQ["PriorityQueue\n✅ Min-heap by default"]
-    QUEUE --> DQ["Deque / ArrayDeque\n✅ Stack + Queue"]
+    QUEUE --> PQ["PriorityQueue ✅ Min-heap by default"]
+    QUEUE --> DQ["Deque / ArrayDeque ✅ Stack + Queue"]
 
     MAP["Map (separate)"]
-    MAP --> HM["HashMap\nO(1), no order"]
-    MAP --> TM["TreeMap\nSorted by key"]
-    MAP --> LHM["LinkedHashMap\nInsertion order"]
-    MAP --> CHM["ConcurrentHashMap\n✅ Thread-safe"]
+    MAP --> HM["HashMap O(1), no order"]
+    MAP --> TM["TreeMap Sorted by key"]
+    MAP --> LHM["LinkedHashMap Insertion order"]
+    MAP --> CHM["ConcurrentHashMap ✅ Thread-safe"]
 </pre>
 </div>
 
@@ -148,11 +132,11 @@ Frequent random access → <code>ArrayList</code>. Frequent inserts/deletes → 
 <pre class="mermaid">
 flowchart TD
     TH["Throwable"]
-    TH --> EX["Exception\n(checked + unchecked)"]
-    TH --> ER["Error\n(JVM level — don't catch)"]
+    TH --> EX["Exception (checked + unchecked)"]
+    TH --> ER["Error (JVM level — don't catch)"]
 
-    EX --> CE["Checked Exception\nMust handle at compile time\nIOException, SQLException"]
-    EX --> UE["Unchecked (RuntimeException)\nNullPointerException\nArrayIndexOutOfBoundsException\nIllegalArgumentException"]
+    EX --> CE["Checked Exception Must handle at compile time IOException, SQLException"]
+    EX --> UE["Unchecked (RuntimeException) NullPointerException ArrayIndexOutOfBoundsException IllegalArgumentException"]
 
     ER --> OOM["OutOfMemoryError"]
     ER --> SOE["StackOverflowError"]
@@ -186,11 +170,11 @@ public class PaymentException extends RuntimeException {
 <div class="diagram">
 <pre class="mermaid">
 flowchart LR
-    NEW["NEW\nThread created"] -->|start()| RUNNABLE["RUNNABLE\nReady to run"]
-    RUNNABLE -->|scheduler picks| RUNNING["RUNNING\nExecuting"]
+    NEW["NEW Thread created"] -->|start| RUNNABLE["RUNNABLE Ready to run"]
+    RUNNABLE -->|scheduler picks| RUNNING["RUNNING Executing"]
     RUNNING -->|sleep/wait/IO| BLOCKED["BLOCKED/WAITING"]
     BLOCKED -->|notify/timeout| RUNNABLE
-    RUNNING -->|run() ends| TERMINATED["TERMINATED"]
+    RUNNING -->|run ends| TERMINATED["TERMINATED"]
 </pre>
 </div>
 
@@ -227,8 +211,8 @@ CompletableFuture.supplyAsync(() -> fetchUser(id))
 <div class="diagram">
 <pre class="mermaid">
 flowchart LR
-    SRC["📦 Source\nList, Array, Set"] --> INT["Intermediate Ops\nfilter · map · flatMap\nsorted · distinct · limit"]
-    INT --> TERM["Terminal Op\ncollect · count · reduce\nforEach · findFirst · anyMatch"]
+    SRC["📦 Source List, Array, Set"] --> INT["Intermediate Ops filter · map · flatMap sorted · distinct · limit"]
+    INT --> TERM["Terminal Op collect · count · reduce forEach · findFirst · anyMatch"]
     TERM --> RES["✅ Result"]
 </pre>
 </div>

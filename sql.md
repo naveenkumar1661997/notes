@@ -36,11 +36,11 @@ title: SQL
 flowchart TD
     SQL["🗄️ SQL Commands"]
 
-    SQL --> DDL["DDL — Data Definition Language\nCREATE · ALTER · DROP · TRUNCATE · RENAME"]
-    SQL --> DML["DML — Data Manipulation Language\nINSERT · UPDATE · DELETE"]
-    SQL --> DQL["DQL — Data Query Language\nSELECT"]
-    SQL --> DCL["DCL — Data Control Language\nGRANT · REVOKE"]
-    SQL --> TCL["TCL — Transaction Control Language\nCOMMIT · ROLLBACK · SAVEPOINT"]
+    SQL --> DDL["DDL — Data Definition Language CREATE · ALTER · DROP · TRUNCATE · RENAME"]
+    SQL --> DML["DML — Data Manipulation Language INSERT · UPDATE · DELETE"]
+    SQL --> DQL["DQL — Data Query Language SELECT"]
+    SQL --> DCL["DCL — Data Control Language GRANT · REVOKE"]
+    SQL --> TCL["TCL — Transaction Control Language COMMIT · ROLLBACK · SAVEPOINT"]
 </pre>
 </div>
 
@@ -55,11 +55,11 @@ flowchart TD
 <div class="diagram">
 <pre class="mermaid">
 flowchart LR
-    subgraph W["✍️ Written Order"]
+    subgraph W["Written Order"]
         direction TB
         w1["1 SELECT"] --> w2["2 FROM"] --> w3["3 JOIN"] --> w4["4 WHERE"] --> w5["5 GROUP BY"] --> w6["6 HAVING"] --> w7["7 ORDER BY"] --> w8["8 LIMIT"]
     end
-    subgraph E["⚙️ Execution Order"]
+    subgraph E["Execution Order"]
         direction TB
         e1["1 FROM"] --> e2["2 JOIN"] --> e3["3 WHERE"] --> e4["4 GROUP BY"] --> e5["5 HAVING"] --> e6["6 SELECT"] --> e7["7 ORDER BY"] --> e8["8 LIMIT"]
     end
@@ -91,13 +91,13 @@ LIMIT    10;</code></pre>
 <pre class="mermaid">
 flowchart TD
     JOINS["🔗 SQL JOINs"]
-    JOINS --> INNER["INNER JOIN\nOnly matching rows in BOTH tables"]
-    JOINS --> LEFT["LEFT JOIN\nAll from left + matched from right\n(NULL if no match on right)"]
-    JOINS --> RIGHT["RIGHT JOIN\nAll from right + matched from left\n(NULL if no match on left)"]
-    JOINS --> FULL["FULL OUTER JOIN\nAll rows from both tables\n(NULLs where no match)"]
-    JOINS --> CROSS["CROSS JOIN\nCartesian product — every A × every B\nm × n rows"]
-    JOINS --> SELF["SELF JOIN\nJoin table with itself\n(manager → employee)"]
-    JOINS --> EXCL["LEFT EXCLUDING\nRows in A with NO match in B\nWHERE B.id IS NULL"]
+    JOINS --> INNER["INNER JOIN Only matching rows in BOTH tables"]
+    JOINS --> LEFT["LEFT JOIN All from left + matched from right (NULL if no match on right)"]
+    JOINS --> RIGHT["RIGHT JOIN All from right + matched from left (NULL if no match on left)"]
+    JOINS --> FULL["FULL OUTER JOIN All rows from both tables (NULLs where no match)"]
+    JOINS --> CROSS["CROSS JOIN Cartesian product — every A × every B m × n rows"]
+    JOINS --> SELF["SELF JOIN Join table with itself (manager → employee)"]
+    JOINS --> EXCL["LEFT EXCLUDING Rows in A with NO match in B WHERE B.id IS NULL"]
 </pre>
 </div>
 
@@ -173,10 +173,10 @@ SELECT * FROM org ORDER BY lvl;</code></pre>
 <div class="diagram">
 <pre class="mermaid">
 flowchart LR
-    WF["Window Functions\nfn() OVER (PARTITION BY ... ORDER BY ...)"]
-    WF --> RANK["Ranking\nROW_NUMBER · RANK · DENSE_RANK · NTILE"]
-    WF --> OFFSET["Offset\nLAG · LEAD · FIRST_VALUE · LAST_VALUE"]
-    WF --> AGG["Running Aggregates\nSUM OVER · AVG OVER · COUNT OVER"]
+    WF["Window Functions fn() OVER (PARTITION BY ... ORDER BY ...)"]
+    WF --> RANK["Ranking ROW_NUMBER · RANK · DENSE_RANK · NTILE"]
+    WF --> OFFSET["Offset LAG · LEAD · FIRST_VALUE · LAST_VALUE"]
+    WF --> AGG["Running Aggregates SUM OVER · AVG OVER · COUNT OVER"]
 </pre>
 </div>
 
@@ -219,11 +219,11 @@ FROM sales;</code></pre>
 <pre class="mermaid">
 flowchart TD
     IDX["🗂️ Index Types"]
-    IDX --> BT["B-Tree (default)\n✅ Range, ORDER BY, LIKE 'abc%'"]
-    IDX --> HS["Hash\n✅ Exact equality only\n❌ No range queries"]
-    IDX --> CI["Composite\nMulti-column — follow left-prefix rule"]
-    IDX --> PI["Partial\nWHERE clause — smaller, faster for sparse data"]
-    IDX --> UI["Unique Index\nEnforce uniqueness + speed"]
+    IDX --> BT["B-Tree (default) ✅ Range, ORDER BY, LIKE 'abc%'"]
+    IDX --> HS["Hash ✅ Exact equality only ❌ No range queries"]
+    IDX --> CI["Composite Multi-column — follow left-prefix rule"]
+    IDX --> PI["Partial WHERE clause — smaller, faster for sparse data"]
+    IDX --> UI["Unique Index Enforce uniqueness + speed"]
 </pre>
 </div>
 
@@ -244,10 +244,10 @@ flowchart TD
 <pre class="mermaid">
 flowchart LR
     ACID["🔐 ACID Properties"]
-    ACID --> A["Atomicity\nAll or nothing\nNo partial state"]
-    ACID --> C["Consistency\nDB goes valid state → valid state\nAll constraints maintained"]
-    ACID --> I["Isolation\nConcurrent transactions\nbehave as if serial"]
-    ACID --> D["Durability\nCommitted data persists\neven after crash (WAL)"]
+    ACID --> A["Atomicity All or nothing No partial state"]
+    ACID --> C["Consistency DB goes valid state → valid state All constraints maintained"]
+    ACID --> I["Isolation Concurrent transactions behave as if serial"]
+    ACID --> D["Durability Committed data persists even after crash (WAL)"]
 </pre>
 </div>
 
@@ -283,10 +283,10 @@ COMMIT;</code></pre>
 <div class="diagram">
 <pre class="mermaid">
 flowchart LR
-    RAW["Unnormalized\n(redundant data)"] -->|"Atomic values\nno repeating groups"| N1["1NF"]
-    N1 -->|"No partial\ndependency"| N2["2NF"]
-    N2 -->|"No transitive\ndependency"| N3["3NF"]
-    N3 -->|"Every determinant\nis a superkey"| BCNF["BCNF"]
+    RAW["Unnormalized (redundant data)"] -->|"Atomic values no repeating groups"| N1["1NF"]
+    N1 -->|"No partial dependency"| N2["2NF"]
+    N2 -->|"No transitive dependency"| N3["3NF"]
+    N3 -->|"Every determinant is a superkey"| BCNF["BCNF"]
 </pre>
 </div>
 
